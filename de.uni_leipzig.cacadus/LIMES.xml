@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE LIMES PUBLIC "//UNKNOWN/" "limes.dtd" >
+<LIMES>
+<PREFIX>
+	<NAMESPACE>http://www.w3.org/1999/02/22-rdf-syntax-ns#</NAMESPACE>
+	<LABEL>rdf</LABEL>
+</PREFIX>
+<PREFIX>
+	<NAMESPACE>http://www.w3.org/2002/07/owl#</NAMESPACE>
+	<LABEL>owl</LABEL>
+</PREFIX>
+<PREFIX>
+	<NAMESPACE>$res</NAMESPACE>
+	<LABEL>res</LABEL>
+</PREFIX>
+<PREFIX>
+	<NAMESPACE>$prop</NAMESPACE>
+	<LABEL>prop</LABEL>
+</PREFIX>
+<SOURCE>
+	<ID>ENDPOINT</ID>
+	<ENDPOINT>$endpoint</ENDPOINT>
+	<VAR>?y</VAR>
+	<PAGESIZE>2000</PAGESIZE>
+	<RESTRICTION>$resy</RESTRICTION>
+	$properties
+	<TYPE>SPARQL</TYPE>
+</SOURCE>
+
+<TARGET>
+	<ID>FILE</ID>
+	<ENDPOINT>$file</ENDPOINT>
+	<VAR>?x</VAR>
+	<PAGESIZE>2000</PAGESIZE>
+	<RESTRICTION>$resx</RESTRICTION>
+	$properties
+	<TYPE>$outFormat</TYPE>
+</TARGET>
+
+<METRIC>
+$metric
+</METRIC>
+
+<ACCEPTANCE>
+	<THRESHOLD>1.0</THRESHOLD>
+	<FILE>$output</FILE>
+	<RELATION>owl:sameAs</RELATION>
+</ACCEPTANCE>
+
+<REVIEW>
+	<THRESHOLD>1.0</THRESHOLD>
+	<FILE>nope.nt</FILE>
+	<RELATION>owl:sameAs</RELATION>
+</REVIEW>
+<OUTPUT>N3</OUTPUT>
+
+</LIMES>

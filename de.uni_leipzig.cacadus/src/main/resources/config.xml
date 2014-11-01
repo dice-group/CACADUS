@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dog xmlns="http://dog.uni-leipzig.de/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dog.uni-leipzig.de/config config.xsd ">
+  <connection type="impl">
+    <endpoint value="bio-gene.org:8891/sparql-auth"/>
+    <user name="dba"/>
+    <pwd value="dba"/>
+    <unauthEndpoint value="bio-gene.org:8891/sparql"/>
+  </connection>
+  <general>
+    <downloadFolder path="down"/>
+    <converterFolder path="conv"/>
+    <uploadFolder path="upload"/>
+  </general>
+  <crawler>
+  	<graphURI uri="http://crawling.org/"/>
+  	<maxDepth value="1"/>
+  	<politenessDelay value="200"/>
+  	<maxDownloadSize value="5000000"/>
+  	<numberOfCrawlers value="1"/>
+  </crawler>
+</dog>

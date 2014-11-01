@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:dog="http://dog.uni-leipzig.de/config" 
+	targetNamespace="http://dog.uni-leipzig.de/config"
+	elementFormDefault="qualified">
+	<xs:element name="dog">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="connection" type="dog:connection" minOccurs="1" maxOccurs="1" />
+				<xs:element name="general" type="dog:general" minOccurs="1" maxOccurs="1" />
+				<xs:element name="crawler" type="dog:crawler" minOccurs="0" maxOccurs="1" />
+				<xs:element name="description" type="dog:description" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+		<xs:complexType name="connection">
+			<xs:sequence minOccurs="1" maxOccurs="1">
+				<xs:element name="endpoint" type="dog:endpoint" minOccurs="1"
+					maxOccurs="1" />
+				<xs:element name="unauthEndpoint" type="dog:endpoint" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="endpointUpdate" type="dog:endpoint" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="user" type="dog:user" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="pwd" type="dog:pwd" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="curlURL" type="dog:curlURL" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="curlCommand" type="dog:curlCommand"
+					minOccurs="0" maxOccurs="1" />
+				<xs:element name="curlDrop" type="dog:curlDrop" minOccurs="0"
+					maxOccurs="1" />
+				<xs:element name="curlUpdate" type="dog:curlUpdate" minOccurs="0"
+					maxOccurs="1" />
+			</xs:sequence>
+			<xs:attribute name="type" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="impl" />
+						<xs:enumeration value="curl" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+
+	<xs:complexType name="general">
+		<xs:sequence minOccurs="1" maxOccurs="1">
+			<xs:element name="downloadFolder" type="dog:downloadFolder"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="converterFolder" type="dog:converterFolder"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="uploadFolder" type="dog:uploadFolder"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="limesConfig" type="dog:limesConfig" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="limesLookUp" type="dog:limesLookUp" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="backUp" type="dog:backup" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="updateTimer" type="dog:updateTimer" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="linkThreshold" type="dog:linkThreshold" minOccurs="0"
+				maxOccurs="1" />
+			<xs:element name="pgnsPerLinksThreshold" type="dog:pgnsPerLinksThreshold" minOccurs="0"
+				maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="crawler">
+		<xs:sequence minOccurs="1" maxOccurs="1">
+			<xs:element name="seedFile" type="dog:seedFile"/>
+			<xs:element name="numberOfCrawlers" type="dog:numberOfCrawlers"/>
+			<xs:element name="graphURI" type="dog:graphURI"/>
+			<xs:element name="outputFormat" type="dog:outputFormat"/>
+			<xs:element name="blackList" type="dog:blackList"/>
+			<xs:element name="maxDownloadSize" type="dog:maxDownloadSize"/>
+			<xs:element name="crawlStorageFolder" type="dog:crawlStorageFolder"/>
+			<xs:element name="politenessDelay" type="dog:politenessDelay"/>
+			<xs:element name="maxDepth" type="dog:maxDepth"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="description">
+		<xs:sequence minOccurs="1" maxOccurs="1">
+			<xs:element name="namespace" type="dog:namespace"/>	
+			<xs:element name="resourceURI" type="dog:resourceURI"/>
+			<xs:element name="propertyURI" type="dog:propertyURI"/>
+		</xs:sequence>
+		<xs:attribute name="metaData" type="xs:boolean" />
+	</xs:complexType>
+
+
+	<xs:complexType name="backup">
+		<xs:attribute name="value" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="updateTimer">
+		<xs:attribute name="value" type="xs:int"/>
+	</xs:complexType>
+	<xs:complexType name="namespace">
+		<xs:attribute name="value" type="xs:anyURI"/>
+	</xs:complexType>
+	<xs:complexType name="resourceURI">
+		<xs:attribute name="value" type="xs:anyURI"/>
+	</xs:complexType>
+	<xs:complexType name="propertyURI">
+		<xs:attribute name="value" type="xs:anyURI"/>
+	</xs:complexType>
+	<xs:complexType name="endpoint">
+		<xs:attribute name="value" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="user">
+		<xs:attribute name="name" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="pwd">
+		<xs:attribute name="value" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="curlURL">
+		<xs:attribute name="url" type="xs:anyURI"/>
+	</xs:complexType>
+	<xs:complexType name="curlCommand">
+		<xs:attribute name="command" type="xs:string"/>
+	</xs:complexType>
+		<xs:complexType name="curlDrop">
+		<xs:attribute name="command" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="curlUpdate">
+		<xs:attribute name="command" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="seedFile">
+		<xs:attribute name="file" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="numberOfCrawlers">
+		<xs:attribute name="value" type="xs:integer"/>
+	</xs:complexType>
+	<xs:complexType name="graphURI">
+		<xs:attribute name="uri" type="xs:anyURI"/>
+	</xs:complexType>
+	<xs:complexType name="outputFormat">
+		<xs:attribute name="value" type="dog:rdfFormat"/>
+	</xs:complexType>
+	<xs:complexType name="blackList">
+		<xs:attribute name="file" type="xs:string"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="maxDownloadSize">
+		<xs:attribute name="value" type="xs:integer"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="crawlStorageFolder">
+		<xs:attribute name="path" type="xs:string"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="politenessDelay">
+		<xs:attribute name="value" type="xs:integer"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="maxDepth">
+		<xs:attribute name="value" type="xs:integer"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="linkThreshold">
+		<xs:attribute name="value" type="xs:integer"></xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="pgnsPerLinksThreshold">
+		<xs:attribute name="value" type="xs:double"></xs:attribute>
+	</xs:complexType>	
+	<xs:complexType name="downloadFolder">
+		<xs:attribute name="path" type="xs:string"></xs:attribute>
+	</xs:complexType>	
+	<xs:complexType name="converterFolder">
+		<xs:attribute name="path" type="xs:string"></xs:attribute>
+	</xs:complexType>	
+	<xs:complexType name="uploadFolder">
+		<xs:attribute name="path" type="xs:string"></xs:attribute>
+	</xs:complexType>	
+	<xs:complexType name="limesConfig">
+		<xs:attribute name="file" type="xs:string"></xs:attribute>
+	</xs:complexType>	
+	<xs:complexType name="limesLookUp">
+		<xs:attribute name="value" type="xs:boolean"></xs:attribute>
+	</xs:complexType>	
+	<xs:simpleType name="rdfFormat">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TURTLE" />
+			<xs:enumeration value="RDF/XML"/>
+			<xs:enumeration value="NTRIPLE"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

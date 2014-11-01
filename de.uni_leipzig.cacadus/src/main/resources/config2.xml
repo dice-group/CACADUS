@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dog xmlns="http://dog.uni-leipzig.de/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://dog.uni-leipzig.de/config config.xsd ">
+  <connection type="impl">
+    <endpoint value=""/>
+    <unauthEndpoint value=""/>
+    <user name=""/>
+    <pwd value=""/>
+    <curlURL url="http://tempuri.org"/>
+    <curlCommand command=""/>
+    <curlDrop command=""/>
+    <curlUpdate command=""/>
+  </connection>
+  <general>
+    <downloadFolder path=""/>
+    <converterFolder path=""/>
+    <uploadFolder path=""/>
+    <limesConfig file=""/>
+    <backUp value="true"/>
+    <updateTimer value="0"/>
+    <linkThreshold value="0"/>
+    <pgnsPerLinksThreshold value="0.0"/>
+  </general>
+  <crawler>
+    <seedFile file=""/>
+    <numberOfCrawlers value="0"/>
+    <graphURI uri="http://tempuri.org"/>
+    <outputFormat value="TURTLE"/>
+    <blackList file=""/>
+    <maxDownloadSize value="0"/>
+    <crawlStorageFolder path=""/>
+    <politenessDelay value="0"/>
+    <maxDepth value="0"/>
+  </crawler>
+  <description metaData="true">
+    <namespace value="http://tempuri.org"/>
+    <resourceURI value="http://tempuri.org"/>
+    <propertyURI value="http://tempuri.org"/>
+  </description>
+</dog>

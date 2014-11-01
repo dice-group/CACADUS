@@ -1,0 +1,484 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>de.uni_leipzig</groupId>
+	<artifactId>cacadus</artifactId>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
+
+	<name>dog</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-jdbc-driver-remote</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.2.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hp.hpl.jena</groupId>
+			<artifactId>iri</artifactId>
+			<version>0.8</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.stream</groupId>
+			<artifactId>stax-api</artifactId>
+			<version>1.0-2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.woodstox</groupId>
+			<artifactId>wstx-asl</artifactId>
+			<version>3.2.9</version>
+		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xmlParserAPIs</artifactId>
+			<version>2.6.2</version>
+		</dependency>
+		<dependency>
+			<groupId>xpp3</groupId>
+			<artifactId>xpp3</artifactId>
+			<version>1.1.4c</version>
+		</dependency>
+		<dependency>
+			<groupId>org.lexicon</groupId>
+			<artifactId>jdbc4sparql</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>transaction-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>it.unimi.dsi</groupId>
+			<artifactId>dsiutils</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>it.unimi.dsi</groupId>
+			<artifactId>fastutil</artifactId>
+			<version>5.1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+			<version>53.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore-nio</artifactId>
+			<version>4.1</version>
+		</dependency>
+		<dependency>
+			<groupId>virtuoso.jena.driver</groupId>
+			<artifactId>virtuoso</artifactId>
+			<version>2.10.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/virtuoso-2.10.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>annotations</groupId>
+			<artifactId>annotations</artifactId>
+			<version>7.0.3</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/annotations-7.0.3.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>conja</groupId>
+			<artifactId>conja</artifactId>
+			<version>1.0.6-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/conja-1.06-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jlibsvm</groupId>
+			<artifactId>jlibsvm</artifactId>
+			<version>0.91-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jlibsvm-0.91-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>JSAP</groupId>
+			<artifactId>JSAP</artifactId>
+			<version>2.0a-ds1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/JSAP-2.0a-ds1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jts</groupId>
+			<artifactId>jts</artifactId>
+			<version>1.13</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jts-1.13.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>lingpipe</groupId>
+			<artifactId>lingpipe</artifactId>
+			<version>4.1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/lingpipe-4.1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>ml</groupId>
+			<artifactId>ml</artifactId>
+			<version>0.911-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/ml-0.911-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>runutils</groupId>
+			<artifactId>runutils</artifactId>
+			<version>0.91-20111226.060632-23</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/runutils-0.91-20111226.060632-23.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>stats</groupId>
+			<artifactId>stats</artifactId>
+			<version>0.93-20111226.060130-6</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/stats-0.93-20111226.060130-6.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>symja</groupId>
+			<artifactId>symja</artifactId>
+			<version>2012-04-08</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/symja-2012-04-08.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>trees</groupId>
+			<artifactId>trees</artifactId>
+			<version>1.023-20111226.060448-9</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/trees-1.023-20111226.060448-9.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>java</groupId>
+			<artifactId>java</artifactId>
+			<version>json</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/java-json.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jmatharray</groupId>
+			<artifactId>jmatharray</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jmatharray-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>simmetrics</groupId>
+			<artifactId>simmetrics</artifactId>
+			<version>1.6.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/simmetrics-1.6.2.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>SSJoinJava</groupId>
+			<artifactId>SSJoinJava</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/SSJoinJava-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jgap</groupId>
+			<artifactId>jgap</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jgap-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jgraph</groupId>
+			<artifactId>jgraph</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jgraph-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>jgraphx</groupId>
+			<artifactId>jgraphx</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/jgraphx-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>LBJ2</groupId>
+			<artifactId>LBJ2</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/LBJ2-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>LBJ2Library</groupId>
+			<artifactId>LBJ2Library</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/LBJ2Library-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>LbjNerTagger</groupId>
+			<artifactId>LbjNerTagger</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/LbjNerTagger-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>libsvm</groupId>
+			<artifactId>libsvm</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/libsvm-1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.alonsoruibal</groupId>
+			<artifactId>alonsoruibal</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/alonsoruibal-1.0.jar</systemPath>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>edu.uci.ics</groupId>
+			<artifactId>crawler4j</artifactId>
+			<version>3.5</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.bio-gene</groupId>
+			<artifactId>connection</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/connection-0.0.1-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-core</artifactId>
+			<version>2.11.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>2.11.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-iri</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>de.uni_leipzig.informatik</groupId>
+			<artifactId>swp13_sc</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/swp13_sc-0.0.1-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>LIMES</groupId>
+			<artifactId>LIMES</artifactId>
+			<version>0.6.3.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/LIMES-0.6.3.2.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>de.uni_leipzig</groupId>
+			<artifactId>mosquito</artifactId>
+			<version>0.2.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/src/main/resources/lib/mosquito-0.2.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena</artifactId>
+			<version>2.11.1</version>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>urbanophile</groupId>
+			<artifactId>java-getopt</artifactId>
+			<version>1.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>14.0-rc1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.collections</groupId>
+			<artifactId>google-collections</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.collections</groupId>
+			<artifactId>collections-generic</artifactId>
+			<version>4.01</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>repository.jboss.org-public</id>
+			<name>JBoss repository</name>
+			<url>https://repository.jboss.org/nexus/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>repository.bio-gene</id>
+			<name>BioGene repository</name>
+			<url>http://maven.bio-gene.org/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+<build>
+	<resources> 
+        <resource>
+            <directory>src/main/resources</directory>
+            <excludes>
+                <exclude>**/*.*</exclude>
+            </excludes>
+            <filtering>false</filtering>
+        </resource>
+     </resources> 
+	<plugins>
+<!-- 		<plugin> -->
+<!--             <groupId>org.apache.maven.plugins</groupId> -->
+<!--             <artifactId>maven-dependency-plugin</artifactId> -->
+<!--             <executions> -->
+<!--                 <execution> -->
+<!--                     <id>copy-dependencies</id> -->
+<!--                     <phase>prepare-package</phase> -->
+<!--                     <goals> -->
+<!--                         <goal>copy-dependencies</goal> -->
+<!--                     </goals> -->
+<!--                     <configuration> -->
+<!--                         <outputDirectory>${project.build.directory}/lib</outputDirectory> -->
+<!--                         <overWriteReleases>false</overWriteReleases> -->
+<!--                         <overWriteSnapshots>false</overWriteSnapshots> -->
+<!--                         <overWriteIfNewer>true</overWriteIfNewer> -->
+<!--                     </configuration> -->
+<!--                 </execution> -->
+<!--             </executions> -->
+<!--         </plugin> -->
+<!--         <plugin> -->
+<!--             <groupId>org.apache.maven.plugins</groupId> -->
+<!--             <artifactId>maven-jar-plugin</artifactId> -->
+<!--             <configuration> -->
+<!--                 <archive> -->
+<!--                     <manifest> -->
+<!--                         <addClasspath>true</addClasspath> -->
+<!--                         <classpathPrefix>lib/</classpathPrefix> -->
+<!--                         <mainClass>de.uni_leipzig.mosquito.benchmark.Benchmark</mainClass> -->
+<!--                     </manifest> -->
+<!--                 </archive> -->
+<!--             </configuration> -->
+<!--         </plugin> -->
+	
+		
+			<plugin>
+              <artifactId>maven-assembly-plugin</artifactId>
+              <configuration>
+                  <archive>
+                      <manifest>
+                          <addClasspath>true</addClasspath>
+                          <mainClass>de.uni_leipzig.cacadus.crawler.Main</mainClass>
+                      </manifest>
+                  </archive>
+                 <descriptorRefs>
+                 	<descriptorRef>jar-with-dependencies</descriptorRef>
+                 </descriptorRefs>
+              </configuration>
+              <executions>
+                  <execution>
+                      <id>make-my-jar-with-dependencies</id>
+                      <phase>package</phase>
+                      <goals>
+                          <goal>single</goal>
+                      </goals>
+                      <configuration>
+              <descriptors>
+                <descriptor>dist.xml</descriptor>
+              </descriptors>
+            </configuration>
+                  </execution>
+              </executions>
+          </plugin>
+		</plugins>
+	</build>
+</project>
